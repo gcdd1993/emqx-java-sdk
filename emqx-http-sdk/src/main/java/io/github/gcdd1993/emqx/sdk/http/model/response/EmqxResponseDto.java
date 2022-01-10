@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * @since 2022/1/10
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class EmqxResponseDto<T> {
 

@@ -16,7 +16,6 @@ import java.util.Map;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ActionDto {
 
     private String name;

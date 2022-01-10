@@ -16,7 +16,6 @@ import java.util.Map;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
 public class RuleActionDto {
 
     /**

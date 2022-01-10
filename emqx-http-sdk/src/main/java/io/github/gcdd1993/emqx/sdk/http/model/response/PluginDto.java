@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class PluginDto {
     /**
      * 插件类型，目前有auth、bridge、feature、protocol 四种类型
