@@ -8,10 +8,12 @@ import retrofit2.http.GET;
 import java.util.List;
 
 /**
+ * API Endpoints
+ *
  * @author gcdd1993
  * @since 2022/1/10
  */
-public interface EmqxHttpApi {
+public interface EmqxEndpointApi {
 
     /**
      * 返回 EMQ X 支持的所有 Endpoints

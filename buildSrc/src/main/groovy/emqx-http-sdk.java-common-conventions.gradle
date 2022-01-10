@@ -12,6 +12,10 @@ plugins {
 dependencies {
     // 定义依赖版本
     constraints {
+        compileOnly("com.fasterxml.jackson.core:jackson-annotations:$jackson_version")
+        compileOnly("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version")
+        testImplementation("com.fasterxml.jackson.core:jackson-annotations:$jackson_version")
+        testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version")
     }
 
     // Use JUnit Jupiter API for testing.

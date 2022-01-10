@@ -3,6 +3,11 @@ plugins{
 }
 dependencies {
     api("com.squareup.retrofit2:retrofit")
+    compileOnly("com.fasterxml.jackson.core:jackson-annotations")
+    compileOnly("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+
+    testImplementation("com.fasterxml.jackson.core:jackson-annotations")
+    testImplementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
     testImplementation("com.squareup.retrofit2:converter-jackson")
 }

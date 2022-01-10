@@ -24,4 +24,9 @@ public class EmqxResponse<T> {
      * 接口数据
      */
     private T data;
+
+    /**
+     * 分页信息
+     */
+    private Meta meta;
 }
