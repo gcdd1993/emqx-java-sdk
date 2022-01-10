@@ -1,10 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http.model.request;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.RuleActionDto;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -16,8 +14,6 @@ import java.util.List;
  */
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class RuleRequest {
 
     /**

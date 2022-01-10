@@ -2,7 +2,6 @@ package io.github.gcdd1993.emqx.sdk.http.model.request;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
@@ -12,7 +11,6 @@ import java.util.Map;
  */
 @Data
 @Builder
-@NoArgsConstructor
 public class ResourceRequest {
 
     /**

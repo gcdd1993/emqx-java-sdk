@@ -1,9 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http.model.request;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 取消指定告警
@@ -13,8 +11,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class DeactivateAlarmRequest {
 
     /**

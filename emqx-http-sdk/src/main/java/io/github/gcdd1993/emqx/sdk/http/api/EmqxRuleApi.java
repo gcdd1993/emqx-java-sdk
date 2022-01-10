@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.request.RuleRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
@@ -50,7 +50,7 @@ public interface EmqxRuleApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/rules/{rule_id}")
-    Call<EmqxResponseDto<?>> removeRule(@Path("rule_id") String ruleId);
+    Call<EmqxResponseDto<Void>> removeRule(@Path("rule_id") String ruleId);
 
 
 }

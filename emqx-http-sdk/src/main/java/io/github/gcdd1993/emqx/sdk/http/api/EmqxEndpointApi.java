@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EndpointDto;

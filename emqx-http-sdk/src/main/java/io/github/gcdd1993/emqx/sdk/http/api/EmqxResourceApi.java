@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.request.ResourceRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
@@ -42,7 +42,7 @@ public interface EmqxResourceApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/resources/{resource_id}")
-    Call<EmqxResponseDto<?>> removeResource(@Path("resource_id") String resourceId);
+    Call<EmqxResponseDto<Void>> removeResource(@Path("resource_id") String resourceId);
 
 
 }

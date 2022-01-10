@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.BannedDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
@@ -40,7 +40,7 @@ public interface EmqxBannedApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/banned/{as}/{who}")
-    Call<EmqxResponseDto<?>> removeBanned(@Path("as") String as,
-                                          @Path("who") String who);
+    Call<EmqxResponseDto<Void>> removeBanned(@Path("as") String as,
+                                             @Path("who") String who);
 
 }

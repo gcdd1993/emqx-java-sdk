@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.request.DeactivateAlarmRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.AlarmDto;
@@ -75,7 +75,7 @@ public interface EmqxAlarmApi {
      * @return {"code":0}
      */
     @POST("/api/v4/alarms/deactivated")
-    Call<EmqxResponseDto<?>> deactivateAlarm(@Body DeactivateAlarmRequest request);
+    Call<EmqxResponseDto<Void>> deactivateAlarm(@Body DeactivateAlarmRequest request);
 
     /**
      * 清除所有已经取消的告警
@@ -83,7 +83,7 @@ public interface EmqxAlarmApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/alarms/deactivated")
-    Call<EmqxResponseDto<?>> cleanDeactivateAlarm();
+    Call<EmqxResponseDto<Void>> cleanDeactivateAlarm();
 
     /**
      * 清除指定节点下所有已经取消的告警
@@ -92,6 +92,6 @@ public interface EmqxAlarmApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/nodes/{node}/alarms/deactivated")
-    Call<EmqxResponseDto<?>> cleanDeactivateAlarm(@Path("node") String node);
+    Call<EmqxResponseDto<Void>> cleanDeactivateAlarm(@Path("node") String node);
 
 }

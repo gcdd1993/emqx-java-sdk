@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.NodeModuleDto;
@@ -41,7 +41,7 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/modules/{module}/load")
-    Call<EmqxResponseDto<?>> loadModule(@Path("module") String module);
+    Call<EmqxResponseDto<Void>> loadModule(@Path("module") String module);
 
     /**
      * 加载指定节点下的指定内置模块
@@ -51,8 +51,8 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/modules/{module}/load")
-    Call<EmqxResponseDto<?>> loadModule(@Path("node") String node,
-                                        @Path("module") String module);
+    Call<EmqxResponseDto<Void>> loadModule(@Path("node") String node,
+                                           @Path("module") String module);
 
     /**
      * 卸载集群下所有节点的指定内置模块
@@ -61,7 +61,7 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/modules/{module}/unload")
-    Call<EmqxResponseDto<?>> unloadModule(@Path("module") String module);
+    Call<EmqxResponseDto<Void>> unloadModule(@Path("module") String module);
 
     /**
      * 卸载指定节点下的指定内置模块
@@ -71,8 +71,8 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/modules/{module}/unload")
-    Call<EmqxResponseDto<?>> unloadModule(@Path("node") String node,
-                                          @Path("module") String module);
+    Call<EmqxResponseDto<Void>> unloadModule(@Path("node") String node,
+                                             @Path("module") String module);
 
     /**
      * 重新加载集群下所有节点的指定内置模块，仅为 emqx_mod_acl_internal 提供此功能
@@ -81,7 +81,7 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/modules/{module}/reload")
-    Call<EmqxResponseDto<?>> reloadModule(@Path("module") String module);
+    Call<EmqxResponseDto<Void>> reloadModule(@Path("module") String module);
 
     /**
      * 重新加载指定节点下的指定内置模块，仅为 emqx_mod_acl_internal 提供此功能
@@ -91,8 +91,8 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/modules/{module}/reload")
-    Call<EmqxResponseDto<?>> reloadModule(@Path("node") String node,
-                                          @Path("module") String module);
+    Call<EmqxResponseDto<Void>> reloadModule(@Path("node") String node,
+                                             @Path("module") String module);
 
 
 }

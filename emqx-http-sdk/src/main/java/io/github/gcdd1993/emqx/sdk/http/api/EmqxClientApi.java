@@ -1,7 +1,7 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.ClientDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.ClientAclCacheDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ClientDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -47,7 +47,7 @@ public interface EmqxClientApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/clients/{clientId}")
-    Call<EmqxResponseDto<?>> removeClient(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<Void>> removeClient(@Path("clientId") String clientId);
 
     /**
      * 返回指定节点下所有客户端的信息，支持分页
@@ -83,8 +83,8 @@ public interface EmqxClientApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/nodes/{node}/clients/{clientId}")
-    Call<EmqxResponseDto<?>> removeNodeClient(@Path("node") String node,
-                                              @Path("clientId") String clientId);
+    Call<EmqxResponseDto<Void>> removeNodeClient(@Path("node") String node,
+                                                 @Path("clientId") String clientId);
 
 
     /**
@@ -127,6 +127,6 @@ public interface EmqxClientApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/clients/{clientId}/acl_cache")
-    Call<EmqxResponseDto<?>> removeClientAclCache(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<Void>> removeClientAclCache(@Path("clientId") String clientId);
 
 }

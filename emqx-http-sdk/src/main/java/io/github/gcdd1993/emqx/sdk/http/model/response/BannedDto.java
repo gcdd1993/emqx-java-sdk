@@ -1,9 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http.model.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author gcdd1993
@@ -11,7 +9,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@NoArgsConstructor
 public class BannedDto {
     /**
      * 添加至黑名单的对象，可以是客户端标识符、用户名和 IP 地址

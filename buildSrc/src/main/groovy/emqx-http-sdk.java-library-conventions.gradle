@@ -13,6 +13,6 @@ plugins {
 dependencies {
     constraints {
         api("com.squareup.retrofit2:retrofit:$retrofit_version")
-        testImplementation("com.squareup.retrofit2:converter-jackson:$retrofit_version")
+        api("com.squareup.retrofit2:converter-jackson:$retrofit_version")
     }
 }

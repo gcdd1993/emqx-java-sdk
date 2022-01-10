@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.request.TelemetryStatusRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
@@ -24,7 +24,7 @@ public interface EmqxTelemetryApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/telemetry/status")
-    Call<EmqxResponseDto<?>> changeStatus(@Body TelemetryStatusRequest request);
+    Call<EmqxResponseDto<Void>> changeStatus(@Body TelemetryStatusRequest request);
 
     /**
      * 查询数据遥测功能是否启用

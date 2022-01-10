@@ -1,10 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * MQTT 消息
@@ -14,8 +12,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class PublishRequest {
     /**
      * 主题，与 topics 至少指定其中之一

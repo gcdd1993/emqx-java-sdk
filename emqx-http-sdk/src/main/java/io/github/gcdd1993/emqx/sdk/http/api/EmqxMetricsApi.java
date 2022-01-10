@@ -1,7 +1,10 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.request.TopicMetricsRequest;
-import io.github.gcdd1993.emqx.sdk.http.model.response.*;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.MetricsDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodeMetricsDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.TopicMetricsDto;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -56,7 +59,7 @@ public interface EmqxMetricsApi {
      * @return {"code":0}
      */
     @POST("/api/v4/topic-metrics")
-    Call<EmqxResponseDto<?>> startTopicMetrics(@Body TopicMetricsRequest request);
+    Call<EmqxResponseDto<Void>> startTopicMetrics(@Body TopicMetricsRequest request);
 
     /**
      * 关闭对指定主题的指标统计
@@ -65,7 +68,7 @@ public interface EmqxMetricsApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/topic-metrics/{topic}")
-    Call<EmqxResponseDto<?>> stopTopicMetrics(@Path("topic") String topic);
+    Call<EmqxResponseDto<Void>> stopTopicMetrics(@Path("topic") String topic);
 
     /**
      * 关闭所有主题的指标统计
@@ -73,7 +76,7 @@ public interface EmqxMetricsApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/topic-metrics/{topic}")
-    Call<EmqxResponseDto<?>> stopTopicMetrics();
+    Call<EmqxResponseDto<Void>> stopTopicMetrics();
 
 
 }

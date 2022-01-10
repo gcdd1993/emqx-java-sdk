@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import retrofit2.Call;
@@ -19,7 +19,7 @@ public interface EmqxAclCacheApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/acl-cache")
-    Call<EmqxResponseDto<?>> cleanAclCache();
+    Call<EmqxResponseDto<Void>> cleanAclCache();
 
     /**
      * 清除指定节点的 ACL 缓存
@@ -28,6 +28,6 @@ public interface EmqxAclCacheApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/node/{node}/acl-cache")
-    Call<EmqxResponseDto<?>> cleanAclCache(@Path("node") String node);
+    Call<EmqxResponseDto<Void>> cleanAclCache(@Path("node") String node);
 
 }

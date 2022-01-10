@@ -2,7 +2,6 @@ package io.github.gcdd1993.emqx.sdk.http.model.request;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 数据遥测功能启用/关闭
@@ -12,7 +11,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@NoArgsConstructor
 public class TelemetryStatusRequest {
     /**
      * 是否启用

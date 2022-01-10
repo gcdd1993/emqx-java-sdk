@@ -2,10 +2,8 @@ package io.github.gcdd1993.emqx.sdk.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.gcdd1993.emqx.sdk.http.api.EmqxClientApi;
-import io.github.gcdd1993.emqx.sdk.http.model.response.ClientDto;
+import io.github.gcdd1993.emqx.sdk.http.api.EmqxAclCacheApi;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.junit.jupiter.api.Assertions;
@@ -16,19 +14,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.TimeZone;
 
 /**
  * @author gcdd1993
  * @since 2022/1/10
  */
-@Slf4j
-class EmqxClientApiTest {
+class EmqxAclCacheApiTest {
 
-    private EmqxClientApi emqxClientApi;
+    private EmqxAclCacheApi emqxAclCacheApi;
     private final ObjectMapper objectMapper = new ObjectMapper()
             .setTimeZone(TimeZone.getTimeZone("UTC"))
             .registerModule(new JavaTimeModule());
@@ -50,51 +44,17 @@ class EmqxClientApiTest {
                 .addConverterFactory(JacksonConverterFactory.create(objectMapper))
                 .client(httpClient)
                 .build();
-        emqxClientApi = retrofit.create(EmqxClientApi.class);
+        emqxAclCacheApi = retrofit.create(EmqxAclCacheApi.class);
     }
 
     @Test
-    void clients() throws IOException {
-        Map<String, Object> queryMap = new HashMap<>();
-        queryMap.put("_page", 1);
-        queryMap.put("_limit", 100);
-        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.clients(queryMap).execute();
-        EmqxResponseDto<List<ClientDto>> clients = response.body();
-
-        Assertions.assertTrue(clients.getCode() == 0);
-
-        log.info("clients: {}", clients);
+    void cleanAclCache() throws IOException {
+        Response<EmqxResponseDto<Void>> response = emqxAclCacheApi.cleanAclCache().execute();
+        EmqxResponseDto<Void> body = response.body();
+        Assertions.assertTrue(body.getCode() == 0);
     }
 
     @Test
-    void client() {
-    }
-
-    @Test
-    void removeClient() {
-    }
-
-    @Test
-    void nodeClients() {
-    }
-
-    @Test
-    void testClient() {
-    }
-
-    @Test
-    void removeNodeClient() {
-    }
-
-    @Test
-    void clientsByUsername() {
-    }
-
-    @Test
-    void nodeClientsByUsername() {
-    }
-
-    @Test
-    void clientAclCache() {
+    void testCleanAclCache() {
     }
 }
