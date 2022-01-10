@@ -22,5 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'gradle-java-template'
-include('app', 'list', 'utilities')
+rootProject.name = 'emqx-java-sdk'
+include("emqx-http-sdk")
+include("emqx-http-sdk-sample")

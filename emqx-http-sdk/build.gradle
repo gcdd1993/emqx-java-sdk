@@ -1,0 +1,8 @@
+plugins{
+    id "emqx-http-sdk.java-library-conventions"
+}
+dependencies {
+    api("com.squareup.retrofit2:retrofit")
+
+    testImplementation("com.squareup.retrofit2:converter-jackson")
+}
