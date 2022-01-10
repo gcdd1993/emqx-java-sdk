@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
- * 内置模块
+ * 节点的状态数据
  *
  * @author gcdd1993
  * @since 2022/1/10
@@ -13,20 +15,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Module {
+public class NodeStatsDto {
 
     /**
-     * 模块名
+     * 节点名称
      */
-    private String name;
+    private String node;
 
     /**
-     * 模块功能描述
+     * 节点下的所有统计指标数据
      */
-    private String description;
-
-    /**
-     * 是否处于活跃状态（是否正在运行）
-     */
-    private boolean active;
+    private List<StatsDto> stats;
 }

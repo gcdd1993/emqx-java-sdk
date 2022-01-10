@@ -1,9 +1,9 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
 import io.github.gcdd1993.emqx.sdk.http.model.request.DeactivateAlarmRequest;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Alarm;
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.NodeAlarm;
+import io.github.gcdd1993.emqx.sdk.http.model.response.AlarmDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodeAlarmDto;
 import retrofit2.Call;
 import retrofit2.http.*;
 
@@ -23,7 +23,7 @@ public interface EmqxAlarmApi {
      * @return 告警信息
      */
     @GET("/api/v4/alarms")
-    Call<EmqxResponse<List<NodeAlarm>>> alarms();
+    Call<EmqxResponseDto<List<NodeAlarmDto>>> alarms();
 
     /**
      * 返回指定节点下的告警信息
@@ -32,7 +32,7 @@ public interface EmqxAlarmApi {
      * @return 告警信息
      */
     @GET("/api/v4/nodes/{node}/alarms")
-    Call<EmqxResponse<List<Alarm>>> alarms(@Path("node") String node);
+    Call<EmqxResponseDto<List<AlarmDto>>> alarms(@Path("node") String node);
 
     /**
      * 返回集群下激活中的告警
@@ -40,7 +40,7 @@ public interface EmqxAlarmApi {
      * @return 告警信息
      */
     @GET("/api/v4/alarms/activated")
-    Call<EmqxResponse<List<NodeAlarm>>> activatedAlarms();
+    Call<EmqxResponseDto<List<NodeAlarmDto>>> activatedAlarms();
 
     /**
      * 返回指定节点下激活中的告警
@@ -49,7 +49,7 @@ public interface EmqxAlarmApi {
      * @return 告警信息
      */
     @GET("/api/v4/nodes/{node}/alarms/activated")
-    Call<EmqxResponse<List<Alarm>>> activatedAlarms(@Path("node") String node);
+    Call<EmqxResponseDto<List<AlarmDto>>> activatedAlarms(@Path("node") String node);
 
     /**
      * 返回集群下已经取消的告警
@@ -57,7 +57,7 @@ public interface EmqxAlarmApi {
      * @return 告警信息
      */
     @GET("/api/v4/alarms/deactivated")
-    Call<EmqxResponse<List<NodeAlarm>>> deactivatedAlarms();
+    Call<EmqxResponseDto<List<NodeAlarmDto>>> deactivatedAlarms();
 
     /**
      * 返回指定节点下已经取消的告警
@@ -66,7 +66,7 @@ public interface EmqxAlarmApi {
      * @return 告警信息
      */
     @GET("/api/v4/nodes/{node}/alarms/deactivated")
-    Call<EmqxResponse<List<Alarm>>> deactivatedAlarms(@Path("node") String node);
+    Call<EmqxResponseDto<List<AlarmDto>>> deactivatedAlarms(@Path("node") String node);
 
     /**
      * 取消指定告警
@@ -75,7 +75,7 @@ public interface EmqxAlarmApi {
      * @return {"code":0}
      */
     @POST("/api/v4/alarms/deactivated")
-    Call<EmqxResponse<?>> deactivateAlarm(@Body DeactivateAlarmRequest request);
+    Call<EmqxResponseDto<?>> deactivateAlarm(@Body DeactivateAlarmRequest request);
 
     /**
      * 清除所有已经取消的告警
@@ -83,7 +83,7 @@ public interface EmqxAlarmApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/alarms/deactivated")
-    Call<EmqxResponse<?>> cleanDeactivateAlarm();
+    Call<EmqxResponseDto<?>> cleanDeactivateAlarm();
 
     /**
      * 清除指定节点下所有已经取消的告警
@@ -92,6 +92,6 @@ public interface EmqxAlarmApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/nodes/{node}/alarms/deactivated")
-    Call<EmqxResponse<?>> cleanDeactivateAlarm(@Path("node") String node);
+    Call<EmqxResponseDto<?>> cleanDeactivateAlarm(@Path("node") String node);
 
 }

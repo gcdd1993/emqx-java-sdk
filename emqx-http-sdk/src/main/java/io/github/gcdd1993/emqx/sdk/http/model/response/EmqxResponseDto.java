@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmqxResponse<T> {
+public class EmqxResponseDto<T> {
 
     /**
      * 返回码
@@ -33,5 +33,5 @@ public class EmqxResponse<T> {
     /**
      * 分页信息
      */
-    private Meta meta;
+    private MetaDto meta;
 }

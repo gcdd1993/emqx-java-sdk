@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Banned {
+public class BannedDto {
     /**
      * 添加至黑名单的对象，可以是客户端标识符、用户名和 IP 地址
      */

@@ -2,8 +2,8 @@ package io.github.gcdd1993.emqx.sdk.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Endpoint;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EndpointDto;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -52,8 +52,8 @@ class EmqxEndpointApiTest {
 
     @Test
     void endpoints() throws IOException {
-        Response<EmqxResponse<List<Endpoint>>> response = emqxEndpointApi.endpoints().execute();
-        EmqxResponse<List<Endpoint>> endpoints = response.body();
+        Response<EmqxResponseDto<List<EndpointDto>>> response = emqxEndpointApi.endpoints().execute();
+        EmqxResponseDto<List<EndpointDto>> endpoints = response.body();
 
         Assertions.assertTrue(endpoints.getCode() == 0);
         log.info("endpoints: {}", endpoints);

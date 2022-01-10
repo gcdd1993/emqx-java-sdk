@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * 节点下的监听器信息
+ * 节点下的内置模块信息
  *
  * @author gcdd1993
  * @since 2022/1/10
@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NodeListener {
+public class NodeModuleDto {
 
     /**
      * 节点名称
@@ -23,7 +23,7 @@ public class NodeListener {
     private String node;
 
     /**
-     * 节点下的所有监听器信息
+     * 节点下的所有内置模块信息
      */
-    private List<Listener> listeners;
+    private List<ModuleDto> modules;
 }

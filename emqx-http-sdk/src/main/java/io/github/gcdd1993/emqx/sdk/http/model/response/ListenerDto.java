@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Listener {
+public class ListenerDto {
 
     /**
      * Acceptor 进程数量

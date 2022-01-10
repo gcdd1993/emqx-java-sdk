@@ -1,36 +1,41 @@
 package io.github.gcdd1993.emqx.sdk.http.model.response;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 /**
- * 插件信息
+ * 规则动作
  *
  * @author gcdd1993
  * @since 2022/1/10
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Plugin {
-    /**
-     * 插件类型，目前有auth、bridge、feature、protocol 四种类型
-     */
-    private String type;
+public class RuleActionDto {
 
     /**
-     * 插件名称
+     * Action ID
+     */
+    private String id;
+
+    /**
+     * 动作名称
      */
     private String name;
 
     /**
-     * 插件描述
+     * 动作参数
      */
-    private String description;
+    private Map<String, Object> params;
 
     /**
-     * 插件是否启动
+     * 统计指标，具体可参看 Dashboard 上的 Rule Metrics
      */
-    private boolean active;
+    private Map<String, Object> metrics;
 }

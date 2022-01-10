@@ -5,11 +5,11 @@ import lombok.Data;
 import java.util.LinkedHashMap;
 
 /**
- * 统计指标数据
+ * 状态数据
  *
  * @author gcdd1993
  * @since 2022/1/10
  */
 @Data
-public class Metrics extends LinkedHashMap<String, Integer> {
+public class StatsDto extends LinkedHashMap<String, Integer> {
 }

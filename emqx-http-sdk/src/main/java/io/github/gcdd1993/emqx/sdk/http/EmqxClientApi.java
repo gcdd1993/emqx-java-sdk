@@ -1,8 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.Client;
-import io.github.gcdd1993.emqx.sdk.http.model.response.ClientAclCache;
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ClientDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ClientAclCacheDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -27,7 +27,7 @@ public interface EmqxClientApi {
      * @return 客户端的信息
      */
     @GET("/api/v4/clients")
-    Call<EmqxResponse<List<Client>>> clients(@QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<ClientDto>>> clients(@QueryMap Map<String, Object> queryMap);
 
     /**
      * 返回指定客户端的信息
@@ -36,7 +36,7 @@ public interface EmqxClientApi {
      * @return 客户端的信息
      */
     @GET("/api/v4/clients/{clientId}")
-    Call<EmqxResponse<List<Client>>> client(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<List<ClientDto>>> client(@Path("clientId") String clientId);
 
     /**
      * 踢除指定客户端
@@ -47,7 +47,7 @@ public interface EmqxClientApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/clients/{clientId}")
-    Call<EmqxResponse<?>> removeClient(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<?>> removeClient(@Path("clientId") String clientId);
 
     /**
      * 返回指定节点下所有客户端的信息，支持分页
@@ -57,8 +57,8 @@ public interface EmqxClientApi {
      * @return 客户端的信息
      */
     @GET("/api/v4/nodes/{node}/clients")
-    Call<EmqxResponse<List<Client>>> nodeClients(@Path("node") String node,
-                                                 @QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<ClientDto>>> nodeClients(@Path("node") String node,
+                                                       @QueryMap Map<String, Object> queryMap);
 
 
     /**
@@ -69,8 +69,8 @@ public interface EmqxClientApi {
      * @return 客户端的信息
      */
     @GET("/api/v4/nodes/{node}/clients/{clientId}")
-    Call<EmqxResponse<List<Client>>> client(@Path("node") String node,
-                                            @Path("clientId") String clientId);
+    Call<EmqxResponseDto<List<ClientDto>>> client(@Path("node") String node,
+                                                  @Path("clientId") String clientId);
 
 
     /**
@@ -83,8 +83,8 @@ public interface EmqxClientApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/nodes/{node}/clients/{clientId}")
-    Call<EmqxResponse<?>> removeNodeClient(@Path("node") String node,
-                                           @Path("clientId") String clientId);
+    Call<EmqxResponseDto<?>> removeNodeClient(@Path("node") String node,
+                                              @Path("clientId") String clientId);
 
 
     /**
@@ -96,7 +96,7 @@ public interface EmqxClientApi {
      * @return 客户端的信息
      */
     @GET("/api/v4/clients/username/{username}")
-    Call<EmqxResponse<List<Client>>> clientsByUsername(@Path("username") String username);
+    Call<EmqxResponseDto<List<ClientDto>>> clientsByUsername(@Path("username") String username);
 
 
     /**
@@ -108,8 +108,8 @@ public interface EmqxClientApi {
      * @return 客户端的信息
      */
     @GET("/api/v4/nodes/{node}/clients/username/{username}")
-    Call<EmqxResponse<List<Client>>> nodeClientsByUsername(@Path("node") String node,
-                                                           @Path("username") String username);
+    Call<EmqxResponseDto<List<ClientDto>>> nodeClientsByUsername(@Path("node") String node,
+                                                                 @Path("username") String username);
 
     /**
      * 查询指定客户端的 ACL 缓存
@@ -118,7 +118,7 @@ public interface EmqxClientApi {
      * @return 客户端的 ACL 缓存
      */
     @GET("/api/v4/clients/{clientId}/acl_cache")
-    Call<EmqxResponse<List<ClientAclCache>>> clientAclCache(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<List<ClientAclCacheDto>>> clientAclCache(@Path("clientId") String clientId);
 
     /**
      * 清除指定客户端的 ACL 缓存
@@ -127,6 +127,6 @@ public interface EmqxClientApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/clients/{clientId}/acl_cache")
-    Call<EmqxResponse<?>> removeClientAclCache(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<?>> removeClientAclCache(@Path("clientId") String clientId);
 
 }

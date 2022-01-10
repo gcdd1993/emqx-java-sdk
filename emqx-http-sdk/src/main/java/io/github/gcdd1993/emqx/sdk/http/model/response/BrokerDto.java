@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Broker {
+public class BrokerDto {
     /**
      * EMQ X 版本
      */

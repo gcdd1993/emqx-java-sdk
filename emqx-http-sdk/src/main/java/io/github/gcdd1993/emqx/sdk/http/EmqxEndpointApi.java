@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Endpoint;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EndpointDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -21,5 +21,5 @@ public interface EmqxEndpointApi {
      * @return Endpoints
      */
     @GET("/api/v4")
-    Call<EmqxResponse<List<Endpoint>>> endpoints();
+    Call<EmqxResponseDto<List<EndpointDto>>> endpoints();
 }

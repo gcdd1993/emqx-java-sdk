@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.NodePlugin;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodePluginDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -23,7 +23,7 @@ public interface EmqxPluginApi {
      * @return 插件信息
      */
     @GET("/api/v4/plugins")
-    Call<EmqxResponse<List<NodePlugin>>> plugins();
+    Call<EmqxResponseDto<List<NodePluginDto>>> plugins();
 
     /**
      * 返回指定节点下的插件信息
@@ -32,7 +32,7 @@ public interface EmqxPluginApi {
      * @return 插件信息
      */
     @GET("/api/v4/nodes/{node}/plugins")
-    Call<EmqxResponse<List<NodePlugin>>> plugins(@Path("node") String node);
+    Call<EmqxResponseDto<List<NodePluginDto>>> plugins(@Path("node") String node);
 
     /**
      * 加载指定节点下的指定插件
@@ -42,8 +42,8 @@ public interface EmqxPluginApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/plugins/{plugin}/load")
-    Call<EmqxResponse<?>> loadPlugin(@Path("node") String node,
-                                     @Path("plugin") String plugin);
+    Call<EmqxResponseDto<?>> loadPlugin(@Path("node") String node,
+                                        @Path("plugin") String plugin);
 
     /**
      * 卸载指定节点下的指定插件
@@ -53,8 +53,8 @@ public interface EmqxPluginApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/plugins/{plugin}/unload")
-    Call<EmqxResponse<?>> unloadPlugin(@Path("node") String node,
-                                       @Path("plugin") String plugin);
+    Call<EmqxResponseDto<?>> unloadPlugin(@Path("node") String node,
+                                          @Path("plugin") String plugin);
 
     /**
      * 重新加载指定节点下的指定插件
@@ -64,7 +64,7 @@ public interface EmqxPluginApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/plugins/{plugin}/reload")
-    Call<EmqxResponse<?>> reloadPlugin(@Path("node") String node,
-                                       @Path("plugin") String plugin);
+    Call<EmqxResponseDto<?>> reloadPlugin(@Path("node") String node,
+                                          @Path("plugin") String plugin);
 
 }

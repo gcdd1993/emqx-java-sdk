@@ -21,7 +21,7 @@ public interface EmqxMetricsApi {
      * @return 统计指标数据
      */
     @GET("/api/v4/metrics")
-    Call<EmqxResponse<List<NodeMetrics>>> metrics();
+    Call<EmqxResponseDto<List<NodeMetricsDto>>> metrics();
 
     /**
      * 返回集群下所有统计指标数据
@@ -30,7 +30,7 @@ public interface EmqxMetricsApi {
      * @return 统计指标数据
      */
     @GET("/api/v4/nodes/{node}/metrics")
-    Call<EmqxResponse<Metrics>> nodeMetrics(@Path("node") String node);
+    Call<EmqxResponseDto<MetricsDto>> nodeMetrics(@Path("node") String node);
 
     /**
      * 返回集群下所有统计指标数据
@@ -38,7 +38,7 @@ public interface EmqxMetricsApi {
      * @return 统计指标数据
      */
     @GET("/api/v4/topic-metrics")
-    Call<EmqxResponse<List<TopicMetrics>>> topicMetrics();
+    Call<EmqxResponseDto<List<TopicMetricsDto>>> topicMetrics();
 
     /**
      * 返回指定主题的统计指标数据
@@ -47,7 +47,7 @@ public interface EmqxMetricsApi {
      * @return 统计指标数据
      */
     @GET("/api/v4/topic-metrics/{topic}")
-    Call<EmqxResponse<Metrics>> topicMetrics(@Path("topic") String topic);
+    Call<EmqxResponseDto<MetricsDto>> topicMetrics(@Path("topic") String topic);
 
     /**
      * 开启对指定主题的指标统计
@@ -56,7 +56,7 @@ public interface EmqxMetricsApi {
      * @return {"code":0}
      */
     @POST("/api/v4/topic-metrics")
-    Call<EmqxResponse<?>> startTopicMetrics(@Body TopicMetricsRequest request);
+    Call<EmqxResponseDto<?>> startTopicMetrics(@Body TopicMetricsRequest request);
 
     /**
      * 关闭对指定主题的指标统计
@@ -65,7 +65,7 @@ public interface EmqxMetricsApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/topic-metrics/{topic}")
-    Call<EmqxResponse<?>> stopTopicMetrics(@Path("topic") String topic);
+    Call<EmqxResponseDto<?>> stopTopicMetrics(@Path("topic") String topic);
 
     /**
      * 关闭所有主题的指标统计
@@ -73,7 +73,7 @@ public interface EmqxMetricsApi {
      * @return {"code":0}
      */
     @DELETE("/api/v4/topic-metrics/{topic}")
-    Call<EmqxResponse<?>> stopTopicMetrics();
+    Call<EmqxResponseDto<?>> stopTopicMetrics();
 
 
 }

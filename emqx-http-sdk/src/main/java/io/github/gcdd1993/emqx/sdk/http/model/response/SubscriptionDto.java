@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
- * 节点下的内置模块信息
+ * 订阅信息
  *
  * @author gcdd1993
  * @since 2022/1/10
@@ -15,7 +13,17 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NodeModule {
+public class SubscriptionDto {
+
+    /**
+     * 订阅主题
+     */
+    private String topic;
+
+    /**
+     * QoS 等级
+     */
+    private Integer qos;
 
     /**
      * 节点名称
@@ -23,7 +31,7 @@ public class NodeModule {
     private String node;
 
     /**
-     * 节点下的所有内置模块信息
+     * 客户端标识符
      */
-    private List<Module> modules;
+    private String clientid;
 }

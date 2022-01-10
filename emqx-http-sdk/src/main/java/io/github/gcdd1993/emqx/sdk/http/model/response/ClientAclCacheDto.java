@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClientAclCache {
+public class ClientAclCacheDto {
 
     /**
      * ACL 缓存建立时间

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * 节点的状态数据
+ * 节点下的插件信息
  *
  * @author gcdd1993
  * @since 2022/1/10
@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NodeStats {
+public class NodePluginDto {
 
     /**
      * 节点名称
@@ -23,7 +23,7 @@ public class NodeStats {
     private String node;
 
     /**
-     * 节点下的所有统计指标数据
+     * 节点下的所有插件信息
      */
-    private List<Stats> stats;
+    private List<PluginDto> plugins;
 }

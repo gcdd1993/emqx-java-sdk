@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Node;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodeDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -22,7 +22,7 @@ public interface EmqxNodeApi {
      * @return 所有节点的状态
      */
     @GET("/api/v4/nodes")
-    Call<EmqxResponse<List<Node>>> nodes();
+    Call<EmqxResponseDto<List<NodeDto>>> nodes();
 
     /**
      * 获取节点 node 的基本信息
@@ -31,6 +31,6 @@ public interface EmqxNodeApi {
      * @return 节点的状态
      */
     @GET("/api/v4/brokers/{node}")
-    Call<EmqxResponse<Node>> node(@Path("node") String node);
+    Call<EmqxResponseDto<NodeDto>> node(@Path("node") String node);
 
 }

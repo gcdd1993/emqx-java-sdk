@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http.model.response;
+package io.github.gcdd1993.emqx.sdk.http.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

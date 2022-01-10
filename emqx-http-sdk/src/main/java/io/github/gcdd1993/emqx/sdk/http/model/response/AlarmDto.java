@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Alarm {
+public class AlarmDto {
     /**
      * 告警名称
      */
@@ -28,7 +28,7 @@ public class Alarm {
     /**
      * 告警详情
      */
-    private AlarmDetails details;
+    private AlarmDetailsDto details;
 
     /**
      * 告警激活时间，以微秒为单位的 UNIX 时间戳

@@ -1,8 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.PublishRequest;
-import io.github.gcdd1993.emqx.sdk.http.model.response.SubscribeRequest;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.request.PublishRequest;
+import io.github.gcdd1993.emqx.sdk.http.model.request.SubscribeRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.request.UnsubscribeRequest;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -25,7 +25,7 @@ public interface EmqxOperationApi {
      * @return {"code":0}
      */
     @POST("/api/v4/mqtt/publish")
-    Call<EmqxResponse<?>> publish(@Body PublishRequest request);
+    Call<EmqxResponseDto<?>> publish(@Body PublishRequest request);
 
     /**
      * 批量发布 MQTT 消息
@@ -34,7 +34,7 @@ public interface EmqxOperationApi {
      * @return {"code":0}
      */
     @POST("/api/v4/mqtt/publish_batch")
-    Call<EmqxResponse<?>> batchPublish(@Body List<PublishRequest> request);
+    Call<EmqxResponseDto<?>> batchPublish(@Body List<PublishRequest> request);
 
     /**
      * 主题订阅
@@ -43,7 +43,7 @@ public interface EmqxOperationApi {
      * @return {"code":0}
      */
     @POST("/api/v4/mqtt/subscribe")
-    Call<EmqxResponse<?>> subscribe(@Body SubscribeRequest request);
+    Call<EmqxResponseDto<?>> subscribe(@Body SubscribeRequest request);
 
     /**
      * 批量订阅 MQTT 主题
@@ -52,7 +52,7 @@ public interface EmqxOperationApi {
      * @return {"code":0}
      */
     @POST("/api/v4/mqtt/subscribe_batch")
-    Call<EmqxResponse<?>> batchSubscribe(@Body List<SubscribeRequest> request);
+    Call<EmqxResponseDto<?>> batchSubscribe(@Body List<SubscribeRequest> request);
 
     /**
      * 取消订阅
@@ -61,7 +61,7 @@ public interface EmqxOperationApi {
      * @return {"code":0}
      */
     @POST("/api/v4/mqtt/unsubscribe")
-    Call<EmqxResponse<?>> unsubscribe(@Body UnsubscribeRequest request);
+    Call<EmqxResponseDto<?>> unsubscribe(@Body UnsubscribeRequest request);
 
     /**
      * 批量取消订阅
@@ -70,6 +70,6 @@ public interface EmqxOperationApi {
      * @return {"code":0}
      */
     @POST("/api/v4/mqtt/unsubscribe_batch")
-    Call<EmqxResponse<?>> batchUnsubscribe(@Body List<UnsubscribeRequest> request);
+    Call<EmqxResponseDto<?>> batchUnsubscribe(@Body List<UnsubscribeRequest> request);
 
 }

@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.NodeModule;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodeModuleDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -23,7 +23,7 @@ public interface EmqxModuleApi {
      * @return 内置模块信息
      */
     @GET("/api/v4/modules")
-    Call<EmqxResponse<List<NodeModule>>> modules();
+    Call<EmqxResponseDto<List<NodeModuleDto>>> modules();
 
     /**
      * 返回指定节点下所有内置模块信息
@@ -32,7 +32,7 @@ public interface EmqxModuleApi {
      * @return 内置模块信息
      */
     @GET("/api/v4/nodes/{node}/modules")
-    Call<EmqxResponse<List<Module>>> modules(@Path("node") String node);
+    Call<EmqxResponseDto<List<Module>>> modules(@Path("node") String node);
 
     /**
      * 加载集群下所有节点的指定内置模块
@@ -41,7 +41,7 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/modules/{module}/load")
-    Call<EmqxResponse<?>> loadModule(@Path("module") String module);
+    Call<EmqxResponseDto<?>> loadModule(@Path("module") String module);
 
     /**
      * 加载指定节点下的指定内置模块
@@ -51,8 +51,8 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/modules/{module}/load")
-    Call<EmqxResponse<?>> loadModule(@Path("node") String node,
-                                     @Path("module") String module);
+    Call<EmqxResponseDto<?>> loadModule(@Path("node") String node,
+                                        @Path("module") String module);
 
     /**
      * 卸载集群下所有节点的指定内置模块
@@ -61,7 +61,7 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/modules/{module}/unload")
-    Call<EmqxResponse<?>> unloadModule(@Path("module") String module);
+    Call<EmqxResponseDto<?>> unloadModule(@Path("module") String module);
 
     /**
      * 卸载指定节点下的指定内置模块
@@ -71,8 +71,8 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/modules/{module}/unload")
-    Call<EmqxResponse<?>> unloadModule(@Path("node") String node,
-                                       @Path("module") String module);
+    Call<EmqxResponseDto<?>> unloadModule(@Path("node") String node,
+                                          @Path("module") String module);
 
     /**
      * 重新加载集群下所有节点的指定内置模块，仅为 emqx_mod_acl_internal 提供此功能
@@ -81,7 +81,7 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/modules/{module}/reload")
-    Call<EmqxResponse<?>> reloadModule(@Path("module") String module);
+    Call<EmqxResponseDto<?>> reloadModule(@Path("module") String module);
 
     /**
      * 重新加载指定节点下的指定内置模块，仅为 emqx_mod_acl_internal 提供此功能
@@ -91,8 +91,8 @@ public interface EmqxModuleApi {
      * @return {"code":0}
      */
     @PUT("/api/v4/nodes/{node}/modules/{module}/reload")
-    Call<EmqxResponse<?>> reloadModule(@Path("node") String node,
-                                       @Path("module") String module);
+    Call<EmqxResponseDto<?>> reloadModule(@Path("node") String node,
+                                          @Path("module") String module);
 
 
 }

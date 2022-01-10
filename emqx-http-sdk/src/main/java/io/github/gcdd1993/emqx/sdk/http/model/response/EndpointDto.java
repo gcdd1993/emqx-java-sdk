@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Endpoint {
+public class EndpointDto {
     /**
      * Endpoint路径
      */

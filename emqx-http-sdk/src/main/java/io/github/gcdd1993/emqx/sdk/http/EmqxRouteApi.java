@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Route;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.RouteDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -25,7 +25,7 @@ public interface EmqxRouteApi {
      * @return 路由信息
      */
     @GET("/api/v4/routes")
-    Call<EmqxResponse<List<Route>>> routes(@QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<RouteDto>>> routes(@QueryMap Map<String, Object> queryMap);
 
     /**
      * 返回集群下指定主题的路由信息
@@ -35,6 +35,6 @@ public interface EmqxRouteApi {
      * @return 路由信息
      */
     @GET("/api/v4/routes/{topic}")
-    Call<EmqxResponse<List<Route>>> routesByTopic(@Path("topic") String topic,
-                                                  @QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<RouteDto>>> routesByTopic(@Path("topic") String topic,
+                                                        @QueryMap Map<String, Object> queryMap);
 }

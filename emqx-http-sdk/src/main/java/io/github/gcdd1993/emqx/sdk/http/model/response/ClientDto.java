@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client {
+public class ClientDto {
 
     /**
      * 客户端所连接的节点名称

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Node {
+public class NodeDto {
 
     /**
      * EMQ X 版本

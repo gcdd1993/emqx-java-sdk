@@ -2,8 +2,8 @@ package io.github.gcdd1993.emqx.sdk.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Client;
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ClientDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -57,8 +57,8 @@ class EmqxClientApiTest {
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("_page", 1);
         queryMap.put("_limit", 100);
-        Response<EmqxResponse<List<Client>>> response = emqxClientApi.clients(queryMap).execute();
-        EmqxResponse<List<Client>> clients = response.body();
+        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.clients(queryMap).execute();
+        EmqxResponseDto<List<ClientDto>> clients = response.body();
 
         Assertions.assertTrue(clients.getCode() == 0);
 

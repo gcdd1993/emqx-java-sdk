@@ -1,8 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Listener;
-import io.github.gcdd1993.emqx.sdk.http.model.response.NodeListener;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ListenerDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodeListenerDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -23,7 +23,7 @@ public interface EmqxListenerApi {
      * @return 监听器信息
      */
     @GET("/api/v4/listeners")
-    Call<EmqxResponse<List<NodeListener>>> listeners();
+    Call<EmqxResponseDto<List<NodeListenerDto>>> listeners();
 
     /**
      * 返回指定节点的监听器信息
@@ -32,5 +32,5 @@ public interface EmqxListenerApi {
      * @return 监听器信息
      */
     @GET("/api/v4/nodes/{node}/listeners")
-    Call<EmqxResponse<List<Listener>>> listeners(@Path("node") String node);
+    Call<EmqxResponseDto<List<ListenerDto>>> listeners(@Path("node") String node);
 }

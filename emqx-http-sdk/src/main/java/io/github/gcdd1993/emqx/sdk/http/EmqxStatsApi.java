@@ -1,8 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.NodeStats;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Stats;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.NodeStatsDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.StatsDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -23,7 +23,7 @@ public interface EmqxStatsApi {
      * @return 状态数据
      */
     @GET("/api/v4/stats")
-    Call<EmqxResponse<List<NodeStats>>> stats();
+    Call<EmqxResponseDto<List<NodeStatsDto>>> stats();
 
     /**
      * 返回指定节点上的状态数据
@@ -32,6 +32,6 @@ public interface EmqxStatsApi {
      * @return 状态数据
      */
     @GET("/api/v4/nodes/{node}/stats")
-    Call<EmqxResponse<Stats>> stats(@Path("node") String node);
+    Call<EmqxResponseDto<StatsDto>> stats(@Path("node") String node);
 
 }

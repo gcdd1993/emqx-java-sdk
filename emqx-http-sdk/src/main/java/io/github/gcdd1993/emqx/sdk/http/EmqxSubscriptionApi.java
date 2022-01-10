@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Subscription;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.SubscriptionDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -25,7 +25,7 @@ public interface EmqxSubscriptionApi {
      * @return 订阅信息
      */
     @GET("/api/v4/subscriptions")
-    Call<EmqxResponse<List<Subscription>>> subscriptions(@QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<SubscriptionDto>>> subscriptions(@QueryMap Map<String, Object> queryMap);
 
     /**
      * 返回集群下指定客户端的订阅信息
@@ -34,7 +34,7 @@ public interface EmqxSubscriptionApi {
      * @return 订阅信息
      */
     @GET("/api/v4/subscriptions/{clientId}")
-    Call<EmqxResponse<List<Subscription>>> subscriptionsByClient(@Path("clientId") String clientId);
+    Call<EmqxResponseDto<List<SubscriptionDto>>> subscriptionsByClient(@Path("clientId") String clientId);
 
 
     /**
@@ -45,8 +45,8 @@ public interface EmqxSubscriptionApi {
      * @return 订阅信息
      */
     @GET("/api/v4/nodes/{node}/subscriptions")
-    Call<EmqxResponse<List<Subscription>>> subscriptionsByNode(@Path("node") String node,
-                                                               @QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<SubscriptionDto>>> subscriptionsByNode(@Path("node") String node,
+                                                                     @QueryMap Map<String, Object> queryMap);
 
 
     /**
@@ -58,8 +58,8 @@ public interface EmqxSubscriptionApi {
      * @return 订阅信息
      */
     @GET("/api/v4/nodes/{node}/subscriptions/{clientId}")
-    Call<EmqxResponse<List<Subscription>>> subscriptionsByNodeAndClient(@Path("node") String node,
-                                                                        @Path("clientId") String clientId,
-                                                                        @QueryMap Map<String, Object> queryMap);
+    Call<EmqxResponseDto<List<SubscriptionDto>>> subscriptionsByNodeAndClient(@Path("node") String node,
+                                                                              @Path("clientId") String clientId,
+                                                                              @QueryMap Map<String, Object> queryMap);
 
 }

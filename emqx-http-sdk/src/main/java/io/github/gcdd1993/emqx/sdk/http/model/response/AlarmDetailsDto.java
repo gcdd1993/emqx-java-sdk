@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor
 @Data
-public class AlarmDetails {
+public class AlarmDetailsDto {
 
     @JsonProperty("high_watermark")
     private Integer highWatermark;

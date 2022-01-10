@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
- * 节点的告警信息
+ * 内置模块
  *
  * @author gcdd1993
  * @since 2022/1/10
@@ -15,15 +13,20 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NodeAlarm {
+public class ModuleDto {
 
     /**
-     * 节点名称
+     * 模块名
      */
-    private String node;
+    private String name;
 
     /**
-     * 节点下的所告警信息
+     * 模块功能描述
      */
-    private List<Alarm> alarms;
+    private String description;
+
+    /**
+     * 是否处于活跃状态（是否正在运行）
+     */
+    private boolean active;
 }

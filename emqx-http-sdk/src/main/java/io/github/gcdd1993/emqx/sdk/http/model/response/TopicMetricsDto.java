@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TopicMetrics {
+public class TopicMetricsDto {
 
     /**
      * 主题名
@@ -23,5 +23,5 @@ public class TopicMetrics {
     /**
      * 主题统计指标数据
      */
-    private Metrics metrics;
+    private MetricsDto metrics;
 }

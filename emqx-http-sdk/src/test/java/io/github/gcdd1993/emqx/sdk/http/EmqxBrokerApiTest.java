@@ -2,8 +2,8 @@ package io.github.gcdd1993.emqx.sdk.http;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.gcdd1993.emqx.sdk.http.model.response.Broker;
-import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
+import io.github.gcdd1993.emqx.sdk.http.model.response.BrokerDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -52,8 +52,8 @@ class EmqxBrokerApiTest {
 
     @Test
     void brokers() throws IOException {
-        Response<EmqxResponse<List<Broker>>> response = emqxBrokerApi.brokers().execute();
-        EmqxResponse<List<Broker>> brokers = response.body();
+        Response<EmqxResponseDto<List<BrokerDto>>> response = emqxBrokerApi.brokers().execute();
+        EmqxResponseDto<List<BrokerDto>> brokers = response.body();
 
         Assertions.assertTrue(brokers.getCode() == 0);
         log.info("brokers: {}", brokers.getData());
@@ -61,16 +61,16 @@ class EmqxBrokerApiTest {
 
     @Test
     void broker() throws IOException {
-        Response<EmqxResponse<List<Broker>>> response = emqxBrokerApi.brokers().execute();
-        EmqxResponse<List<Broker>> brokers = response.body();
+        Response<EmqxResponseDto<List<BrokerDto>>> response = emqxBrokerApi.brokers().execute();
+        EmqxResponseDto<List<BrokerDto>> brokers = response.body();
 
         Assertions.assertTrue(brokers.getCode() == 0);
 
         brokers.getData()
                 .forEach(broker -> {
                     try {
-                        Response<EmqxResponse<Broker>> res = emqxBrokerApi.broker(broker.getNode()).execute();
-                        EmqxResponse<Broker> brokerInfo = res.body();
+                        Response<EmqxResponseDto<BrokerDto>> res = emqxBrokerApi.broker(broker.getNode()).execute();
+                        EmqxResponseDto<BrokerDto> brokerInfo = res.body();
 
                         Assertions.assertTrue(brokerInfo.getCode() == 0);
 

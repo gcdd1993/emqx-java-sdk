@@ -1,15 +1,15 @@
 package io.github.gcdd1993.emqx.sdk.http.model.response;
 
 import lombok.Data;
-
-import java.util.LinkedHashMap;
+import lombok.NoArgsConstructor;
 
 /**
- * 状态数据
- *
  * @author gcdd1993
  * @since 2022/1/10
  */
 @Data
-public class Stats extends LinkedHashMap<String, Integer> {
+@NoArgsConstructor
+public class DescriptionDto {
+    private String zh;
+    private String en;
 }
