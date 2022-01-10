@@ -33,7 +33,7 @@ public interface EmqxClientApi {
      * 返回指定客户端的信息
      *
      * @param clientId 客户端ID
-     * @return 客户端的信息
+     * @return 客户端的信息，客户端ID错误，返回空数组
      */
     @GET("/api/v4/clients/{clientId}")
     Call<EmqxResponseDto<List<ClientDto>>> client(@Path("clientId") String clientId);

@@ -1,8 +1,7 @@
-package io.github.gcdd1993.emqx.sdk.http;
+package io.github.gcdd1993.emqx.sdk.http.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import io.github.gcdd1993.emqx.sdk.http.api.EmqxBrokerApi;
 import io.github.gcdd1993.emqx.sdk.http.model.response.BrokerDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import lombok.extern.slf4j.Slf4j;
