@@ -120,4 +120,13 @@ public interface EmqxClientApi {
     @GET("/api/v4/clients/{clientId}/acl_cache")
     Call<EmqxResponse<List<ClientAclCache>>> clientAclCache(@Path("clientId") String clientId);
 
+    /**
+     * 清除指定客户端的 ACL 缓存
+     *
+     * @param clientId 客户端ID
+     * @return {"code":0}
+     */
+    @DELETE("/api/v4/clients/{clientId}/acl_cache")
+    Call<EmqxResponse<?>> removeClientAclCache(@Path("clientId") String clientId);
+
 }
