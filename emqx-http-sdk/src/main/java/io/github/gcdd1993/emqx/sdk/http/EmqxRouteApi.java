@@ -1,7 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.Route;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
+import io.github.gcdd1993.emqx.sdk.http.model.response.Route;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

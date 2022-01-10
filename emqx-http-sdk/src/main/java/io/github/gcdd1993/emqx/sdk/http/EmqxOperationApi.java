@@ -1,9 +1,9 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.EmqxResponse;
-import io.github.gcdd1993.emqx.sdk.http.model.PublishRequest;
-import io.github.gcdd1993.emqx.sdk.http.model.SubscribeRequest;
-import io.github.gcdd1993.emqx.sdk.http.model.UnsubscribeRequest;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
+import io.github.gcdd1993.emqx.sdk.http.model.response.PublishRequest;
+import io.github.gcdd1993.emqx.sdk.http.model.response.SubscribeRequest;
+import io.github.gcdd1993.emqx.sdk.http.model.request.UnsubscribeRequest;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -71,6 +71,5 @@ public interface EmqxOperationApi {
      */
     @POST("/api/v4/mqtt/unsubscribe_batch")
     Call<EmqxResponse<?>> batchUnsubscribe(@Body List<UnsubscribeRequest> request);
-
 
 }

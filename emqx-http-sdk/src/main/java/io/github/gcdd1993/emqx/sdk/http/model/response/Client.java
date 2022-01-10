@@ -1,4 +1,4 @@
-package io.github.gcdd1993.emqx.sdk.http.model;
+package io.github.gcdd1993.emqx.sdk.http.model.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

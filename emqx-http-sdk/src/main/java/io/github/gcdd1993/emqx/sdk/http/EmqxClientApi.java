@@ -1,8 +1,8 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
-import io.github.gcdd1993.emqx.sdk.http.model.Client;
-import io.github.gcdd1993.emqx.sdk.http.model.ClientAclCache;
-import io.github.gcdd1993.emqx.sdk.http.model.EmqxResponse;
+import io.github.gcdd1993.emqx.sdk.http.model.response.Client;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ClientAclCache;
+import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponse;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
