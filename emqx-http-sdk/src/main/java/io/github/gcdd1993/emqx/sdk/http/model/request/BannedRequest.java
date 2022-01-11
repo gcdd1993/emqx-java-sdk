@@ -1,15 +1,15 @@
-package io.github.gcdd1993.emqx.sdk.http.model.response;
+package io.github.gcdd1993.emqx.sdk.http.model.request;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author gcdd1993
  * @since 2022/1/10
  */
 @Data
-@NoArgsConstructor
-public class BannedDto {
+@Builder
+public class BannedRequest {
     /**
      * 添加至黑名单的对象，可以是客户端标识符、用户名和 IP 地址
      */

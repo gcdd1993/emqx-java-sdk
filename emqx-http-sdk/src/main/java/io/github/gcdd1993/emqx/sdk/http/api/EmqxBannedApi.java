@@ -1,5 +1,6 @@
 package io.github.gcdd1993.emqx.sdk.http.api;
 
+import io.github.gcdd1993.emqx.sdk.http.model.request.BannedRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.BannedDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import retrofit2.Call;
@@ -30,7 +31,7 @@ public interface EmqxBannedApi {
      * @return 黑名单
      */
     @POST("/api/v4/banned")
-    Call<EmqxResponseDto<BannedDto>> addBanned(@Body BannedDto banned);
+    Call<EmqxResponseDto<BannedDto>> addBanned(@Body BannedRequest request);
 
     /**
      * 将对象从黑名单中删除
