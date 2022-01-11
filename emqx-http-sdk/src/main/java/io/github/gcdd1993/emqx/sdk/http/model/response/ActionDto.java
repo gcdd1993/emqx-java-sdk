@@ -50,4 +50,9 @@ public class ActionDto {
      */
     private String app;
 
+    /**
+     * 类别
+     */
+    private String category;
+
 }

@@ -18,6 +18,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import static io.github.gcdd1993.emqx.sdk.http.TestConstants.*;
 
 /**
  * @author gcdd1993
@@ -29,7 +32,7 @@ class EmqxClientApiTest {
     private EmqxClientApi emqxClientApi;
     private final ObjectMapper objectMapper = new ObjectMapper()
             .registerModule(new JavaTimeModule());
-    private final EmqxApiFactory emqxApiFactory = new EmqxApiFactory("http://localhost:8081", "admin", "public");
+    private final EmqxApiFactory emqxApiFactory = new EmqxApiFactory(HOST, USERNAME, PASSWORD);
 
     @BeforeEach
     void setUp() {
@@ -48,6 +51,8 @@ class EmqxClientApiTest {
         Assertions.assertTrue(clients.getCode() == 0);
 
         log.info("clients: \n{}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(clients));
+
+        log.info("client connected: {}", clients.getData().stream().map(ClientDto::isConnected).collect(Collectors.toList()));
     }
 
     @Test
@@ -111,7 +116,7 @@ class EmqxClientApiTest {
     @Test
     @SneakyThrows
     void clientsByUsername() {
-        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.clientsByUsername("undefined").execute();
+        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.clientsByUsername("admin").execute();
 
         Assertions.assertEquals(200, response.code());
 

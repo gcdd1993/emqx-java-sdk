@@ -19,13 +19,21 @@ import java.util.List;
 public interface EmqxActionApi {
 
     /**
+     * 查询当前所有的动作
+     *
+     * @return 动作
+     */
+    @GET("/api/v4/actions")
+    Call<EmqxResponseDto<List<ActionDto>>> actions();
+
+    /**
      * 获取某个动作的详情，包括动作名字、参数列表等
      *
      * @param actionName 可选，动作名。如不指定 action_name 则
      *                   以数组形式返回当前支持的所有动作
      * @return 动作
      */
-    @GET("/v4/actions/{action_name}")
-    Call<EmqxResponseDto<List<ActionDto>>> actions(@Path("action_name") String actionName);
+    @GET("/api/v4/actions/{action_name}")
+    Call<EmqxResponseDto<ActionDto>> actions(@Path("action_name") String actionName);
 
 }

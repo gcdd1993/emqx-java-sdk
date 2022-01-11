@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+import static io.github.gcdd1993.emqx.sdk.http.TestConstants.*;
+
 /**
  * @author gcdd1993
  * @since 2022/1/10
@@ -21,7 +23,7 @@ class EmqxApiFactoryTest {
 
     @Test
     void create() throws IOException {
-        EmqxApiFactory emqxApiFactory = new EmqxApiFactory("http://localhost:8081", "admin", "public");
+        EmqxApiFactory emqxApiFactory = new EmqxApiFactory(HOST, USERNAME, PASSWORD);
         EmqxClientApi emqxClientApi = emqxApiFactory.create(EmqxClientApi.class);
         Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.clients(Collections.emptyMap()).execute();
 
