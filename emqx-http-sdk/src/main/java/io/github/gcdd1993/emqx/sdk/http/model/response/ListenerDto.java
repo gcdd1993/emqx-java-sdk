@@ -1,6 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -46,9 +47,8 @@ public class ListenerDto {
 
     /**
      * 连接关闭原因及计数
-     * <p>
-     * fixme shutdownCount 数据结构未知
      */
     @JsonProperty("shutdown_count")
-    private List<?> shutdownCount;
+    @JsonDeserialize(using = ShutdownCountDto.ShutdownCountDtoJsonSerializer.class)
+    private List<ShutdownCountDto> shutdownCount;
 }
