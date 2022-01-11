@@ -75,8 +75,7 @@ public interface EmqxMetricsApi {
      *
      * @return {"code":0}
      */
-    @DELETE("/api/v4/topic-metrics/{topic}")
+    @DELETE("/api/v4/topic-metrics")
     Call<EmqxResponseDto<Void>> stopTopicMetrics();
-
 
 }

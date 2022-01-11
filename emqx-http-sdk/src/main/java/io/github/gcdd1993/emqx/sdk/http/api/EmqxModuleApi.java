@@ -1,6 +1,7 @@
 package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.ModuleDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.NodeModuleDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -32,7 +33,7 @@ public interface EmqxModuleApi {
      * @return 内置模块信息
      */
     @GET("/api/v4/nodes/{node}/modules")
-    Call<EmqxResponseDto<List<Module>>> modules(@Path("node") String node);
+    Call<EmqxResponseDto<List<ModuleDto>>> modules(@Path("node") String node);
 
     /**
      * 加载集群下所有节点的指定内置模块

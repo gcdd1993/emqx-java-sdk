@@ -1,8 +1,11 @@
 package io.github.gcdd1993.emqx.sdk.http.model.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * 节点状态
@@ -57,13 +60,13 @@ public class NodeDto {
      * VM 已占用的内存大小
      */
     @JsonProperty("memory_used")
-    private Integer memoryUsed;
+    private String memoryUsed;
 
     /**
      * VM 已分配的系统内存
      */
     @JsonProperty("memory_total")
-    private Integer memoryTotal;
+    private String memoryTotal;
 
     /**
      * 操作系统的最大文件描述符限制
@@ -90,4 +93,9 @@ public class NodeDto {
      * 当前接入此节点的客户端数量
      */
     private Integer connections;
+
+    private String sysdescr;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime datetime;
 }
