@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: emqx-http-sdk-sample
+emqx:
+  http:
+    sdk:
+      url: "http://localhost:8081"
+      app-id: "admin"
+      app-secret: "public"
+      disabled:
+#        - client

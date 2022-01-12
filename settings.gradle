@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = 'emqx-java-sdk'
 include("emqx-http-sdk")
 include("emqx-http-sdk-spring-boot-starter")
+include("emqx-http-sdk-sample")

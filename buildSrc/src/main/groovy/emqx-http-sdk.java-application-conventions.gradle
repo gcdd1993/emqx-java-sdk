@@ -2,3 +2,7 @@ plugins {
     id 'emqx-http-sdk.java-common-conventions'
     id 'application'
 }
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web:$spring_boot_version")
+}
