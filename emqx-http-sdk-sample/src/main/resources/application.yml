@@ -7,5 +7,6 @@ emqx:
       url: "http://localhost:8081"
       app-id: "admin"
       app-secret: "public"
+      # 禁用部分Api
       disabled:
-#        - client
+        - client
