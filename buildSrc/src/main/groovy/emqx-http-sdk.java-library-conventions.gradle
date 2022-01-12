@@ -8,6 +8,11 @@ dependencies {
     constraints {
         api("com.squareup.retrofit2:retrofit:$retrofit_version")
         api("com.squareup.retrofit2:converter-jackson:$retrofit_version")
+
+        compileOnly("org.springframework.boot:spring-boot-starter:$spring_boot_version")
+        annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:$spring_boot_version")
+        testImplementation("org.springframework.boot:spring-boot-starter:$spring_boot_version")
+        testImplementation("org.springframework.boot:spring-boot-starter-test:$spring_boot_version")
     }
 }
 
