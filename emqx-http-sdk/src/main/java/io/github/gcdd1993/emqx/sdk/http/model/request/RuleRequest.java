@@ -1,10 +1,10 @@
 package io.github.gcdd1993.emqx.sdk.http.model.request;
 
-import io.github.gcdd1993.emqx.sdk.http.model.response.RuleActionDto;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 规则
@@ -15,6 +15,8 @@ import java.util.List;
 @Data
 @Builder
 public class RuleRequest {
+
+    private String id;
 
     /**
      * 规则的 SQL 语句
@@ -29,5 +31,13 @@ public class RuleRequest {
     /**
      * 动作列表
      */
-    private List<RuleActionDto> actions;
+    private List<RuleActionRequest> actions;
+
+    @Data
+    @Builder
+    public static class RuleActionRequest {
+        private String name;
+        private Map<String, Object> params;
+        private List<Object> fallbacks;
+    }
 }

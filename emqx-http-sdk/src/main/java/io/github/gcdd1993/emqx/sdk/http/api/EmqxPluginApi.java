@@ -2,6 +2,7 @@ package io.github.gcdd1993.emqx.sdk.http.api;
 
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.NodePluginDto;
+import io.github.gcdd1993.emqx.sdk.http.model.response.PluginDto;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -32,7 +33,7 @@ public interface EmqxPluginApi {
      * @return 插件信息
      */
     @GET("/api/v4/nodes/{node}/plugins")
-    Call<EmqxResponseDto<List<NodePluginDto>>> plugins(@Path("node") String node);
+    Call<EmqxResponseDto<List<PluginDto>>> plugins(@Path("node") String node);
 
     /**
      * 加载指定节点下的指定插件

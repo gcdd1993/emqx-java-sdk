@@ -3,8 +3,6 @@ package io.github.gcdd1993.emqx.sdk.http.model.response;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
  * 节点的状态数据
  *
@@ -23,5 +21,5 @@ public class NodeStatsDto {
     /**
      * 节点下的所有统计指标数据
      */
-    private List<StatsDto> stats;
+    private StatsDto stats;
 }

@@ -26,6 +26,11 @@ public class ResourceTypeDto {
     private DescriptionDto title;
 
     /**
+     * 动作的描述信息，中英文
+     */
+    private DescriptionDto description;
+
+    /**
      * 资源类型的描述信息，中英文
      */
     private String provider;

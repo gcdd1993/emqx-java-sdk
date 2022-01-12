@@ -6,6 +6,8 @@ import io.github.gcdd1993.emqx.sdk.http.model.response.RuleDto;
 import retrofit2.Call;
 import retrofit2.http.*;
 
+import java.util.List;
+
 /**
  * 规则
  *
@@ -15,13 +17,21 @@ import retrofit2.http.*;
 public interface EmqxRuleApi {
 
     /**
-     * 获取某个规则的详情，包括规则的 SQL、Topics 列表、动作列表等。还会返回当前规则和动作的统计指标的值。
+     * 获取所有的规则
+     *
+     * @return 规则
+     */
+    @GET("/api/v4/rules")
+    Call<EmqxResponseDto<List<RuleDto>>> rules();
+
+    /**
+     * 获取某个规则的详情，包括规则的 SQL、Topics 列表、动作列表等。还会返回当前规则和动作的统计指标的值
      *
      * @param ruleId 规则ID
      * @return 规则
      */
     @GET("/api/v4/rules/{rule_id}")
-    Call<EmqxResponseDto<RuleDto>> rule(@Path("rule_id") String ruleId);
+    Call<EmqxResponseDto<RuleDto>> rules(@Path("rule_id") String ruleId);
 
     /**
      * 创建规则，返回规则 ID

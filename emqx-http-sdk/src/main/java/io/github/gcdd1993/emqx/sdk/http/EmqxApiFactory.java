@@ -1,5 +1,6 @@
 package io.github.gcdd1993.emqx.sdk.http;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import okhttp3.OkHttpClient;
@@ -36,7 +37,9 @@ public class EmqxApiFactory {
         if (objectMapper != null) {
             objectMapper
                     .setTimeZone(TimeZone.getTimeZone("UTC"))
-                    .registerModule(new JavaTimeModule());
+                    .registerModule(new JavaTimeModule())
+                    .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            ;
             builder.addConverterFactory(JacksonConverterFactory.create(objectMapper));
         }
         if (httpClientBuilder == null) {
