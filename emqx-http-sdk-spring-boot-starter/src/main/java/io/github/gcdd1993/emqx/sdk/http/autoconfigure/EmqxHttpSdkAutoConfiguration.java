@@ -137,7 +137,7 @@ public class EmqxHttpSdkAutoConfiguration {
     private Object createApi(EmqxHttpSdkProperties properties,
                              EmqxApiFactory emqxApiFactory,
                              EmqxApiType type) {
-        if (properties.getDisabled().contains(EmqxApiType.CLIENT)) {
+        if (properties.getDisabled().contains(type)) {
             return null;
         } else {
             return emqxApiFactory.create(type.getApiClass());
