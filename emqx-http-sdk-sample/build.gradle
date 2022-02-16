@@ -4,4 +4,5 @@ plugins {
 dependencies {
 //    implementation("io.github.gcdd1993:emqx-http-sdk-spring-boot-starter:$root_version")
     implementation project(":emqx-http-sdk-spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 }
