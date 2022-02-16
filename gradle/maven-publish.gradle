@@ -1,30 +1,24 @@
-def artifactory = 'https://packages.aliyun.com/maven/repository/'
-def releasePath = "2024172-release-VqUROD"
-def snapshotsPath = "2024172-snapshot-ajUYZU"
+def snapshotArtifactory = 'https://s01.oss.sonatype.org/content/repositories/snapshots'
+def releaseArtifactory = 'https://s01.oss.sonatype.org/content/repositories/releases'
+def mavenName = 'gcdd1993'
 afterEvaluate { project ->
     if (project.plugins.hasPlugin("maven-publish")) {
-        if (project.plugins.hasPlugin("java")) {
-            java {
-                withSourcesJar()
-            }
-        }
         publishing {
             repositories {
                 maven {
-                    name "${project.name}"
-                    url = "${artifactory}${(version.endsWith('SNAPSHOT') ? snapshotsPath : releasePath)}"
+                    name "${mavenName}"
+                    url = version.endsWith('SNAPSHOT') ? snapshotArtifactory : releaseArtifactory
                     credentials {
-                        username "${maven_username}"
-                        password "${maven_password}"
+                        username "${ossrh_username}"
+                        password "${ossrh_password}"
                     }
                     authentication {
                         basic(BasicAuthentication)
                     }
                 }
             }
-
             publications {
-                omac(MavenPublication) {
+                emqxJavaSdk(MavenPublication) {
                     from components.java
                     versionMapping {
                         usage('java-api') {
