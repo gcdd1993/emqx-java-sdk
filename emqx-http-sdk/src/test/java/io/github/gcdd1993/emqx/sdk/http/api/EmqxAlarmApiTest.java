@@ -3,6 +3,7 @@ package io.github.gcdd1993.emqx.sdk.http.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.gcdd1993.emqx.sdk.http.EmqxApiFactory;
+import io.github.gcdd1993.emqx.sdk.http.TestConstants;
 import io.github.gcdd1993.emqx.sdk.http.model.request.DeactivateAlarmRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.AlarmDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
@@ -53,7 +54,7 @@ class EmqxAlarmApiTest {
     @Test
     @SneakyThrows
     void testAlarms() {
-        Response<EmqxResponseDto<List<AlarmDto>>> response = emqxAlarmApi.alarms("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local").execute();
+        Response<EmqxResponseDto<List<AlarmDto>>> response = emqxAlarmApi.alarms(TestConstants.NODE).execute();
 
         Assertions.assertEquals(200, response.code());
 
@@ -83,7 +84,7 @@ class EmqxAlarmApiTest {
     @Test
     @SneakyThrows
     void testActivatedAlarms() {
-        Response<EmqxResponseDto<List<AlarmDto>>> response = emqxAlarmApi.activatedAlarms("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local").execute();
+        Response<EmqxResponseDto<List<AlarmDto>>> response = emqxAlarmApi.activatedAlarms(TestConstants.NODE).execute();
 
         Assertions.assertEquals(200, response.code());
 
@@ -113,7 +114,7 @@ class EmqxAlarmApiTest {
     @Test
     @SneakyThrows
     void testDeactivatedAlarms() {
-        Response<EmqxResponseDto<List<AlarmDto>>> response = emqxAlarmApi.deactivatedAlarms("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local").execute();
+        Response<EmqxResponseDto<List<AlarmDto>>> response = emqxAlarmApi.deactivatedAlarms(TestConstants.NODE).execute();
 
         Assertions.assertEquals(200, response.code());
 
@@ -130,7 +131,7 @@ class EmqxAlarmApiTest {
     void deactivateAlarm() {
         DeactivateAlarmRequest request = DeactivateAlarmRequest.builder()
                 .name("test")
-                .node("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local")
+                .node(TestConstants.NODE)
                 .build();
         Response<EmqxResponseDto<Void>> response = emqxAlarmApi.deactivateAlarm(request).execute();
 
@@ -148,7 +149,7 @@ class EmqxAlarmApiTest {
     @Test
     @SneakyThrows
     void testCleanDeactivateAlarm() {
-        Response<EmqxResponseDto<Void>> response = emqxAlarmApi.cleanDeactivateAlarm("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local").execute();
+        Response<EmqxResponseDto<Void>> response = emqxAlarmApi.cleanDeactivateAlarm(TestConstants.NODE).execute();
 
         Assertions.assertEquals(200, response.code());
     }

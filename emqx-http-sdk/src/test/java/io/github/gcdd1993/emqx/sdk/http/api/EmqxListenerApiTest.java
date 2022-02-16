@@ -3,6 +3,7 @@ package io.github.gcdd1993.emqx.sdk.http.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.gcdd1993.emqx.sdk.http.EmqxApiFactory;
+import io.github.gcdd1993.emqx.sdk.http.TestConstants;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.ListenerDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.NodeListenerDto;
@@ -52,7 +53,7 @@ class EmqxListenerApiTest {
     @Test
     @SneakyThrows
     void testListeners() {
-        Response<EmqxResponseDto<List<ListenerDto>>> response = emqxListenerApi.listeners("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local").execute();
+        Response<EmqxResponseDto<List<ListenerDto>>> response = emqxListenerApi.listeners(TestConstants.NODE).execute();
 
         Assertions.assertEquals(200, response.code());
 

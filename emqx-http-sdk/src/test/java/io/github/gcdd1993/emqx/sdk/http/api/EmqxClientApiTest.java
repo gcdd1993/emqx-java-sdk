@@ -3,6 +3,7 @@ package io.github.gcdd1993.emqx.sdk.http.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.gcdd1993.emqx.sdk.http.EmqxApiFactory;
+import io.github.gcdd1993.emqx.sdk.http.TestConstants;
 import io.github.gcdd1993.emqx.sdk.http.model.response.ClientAclCacheDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.ClientDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
@@ -93,7 +94,7 @@ class EmqxClientApiTest {
     @Test
     @SneakyThrows
     void nodeClients() {
-        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.nodeClients("c6e6e46531bf@172.18.0.2", Collections.emptyMap()).execute();
+        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.nodeClients(TestConstants.NODE, Collections.emptyMap()).execute();
         Assertions.assertTrue(response.isSuccessful());
         EmqxResponseDto<List<ClientDto>> clients = response.body();
 
@@ -131,7 +132,7 @@ class EmqxClientApiTest {
     @SneakyThrows
     void nodeClientsByUsername() {
         // 找不出Username为空的，不支持
-        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.nodeClientsByUsername("c6e6e46531bf@172.18.0.2", "aaa").execute();
+        Response<EmqxResponseDto<List<ClientDto>>> response = emqxClientApi.nodeClientsByUsername(TestConstants.NODE, "aaa").execute();
 
         Assertions.assertEquals(200, response.code());
 

@@ -3,6 +3,7 @@ package io.github.gcdd1993.emqx.sdk.http.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import io.github.gcdd1993.emqx.sdk.http.EmqxApiFactory;
+import io.github.gcdd1993.emqx.sdk.http.TestConstants;
 import io.github.gcdd1993.emqx.sdk.http.model.request.TopicMetricsRequest;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import io.github.gcdd1993.emqx.sdk.http.model.response.MetricsDto;
@@ -56,7 +57,7 @@ class EmqxMetricsApiTest {
     @Test
     @SneakyThrows
     void nodeMetrics() {
-        Response<EmqxResponseDto<MetricsDto>> response = emqxMetricsApi.nodeMetrics("emqx@emqx-0.emqx-headless.emqx.svc.cluster.local").execute();
+        Response<EmqxResponseDto<MetricsDto>> response = emqxMetricsApi.nodeMetrics(TestConstants.NODE).execute();
 
         Assertions.assertEquals(200, response.code());
 

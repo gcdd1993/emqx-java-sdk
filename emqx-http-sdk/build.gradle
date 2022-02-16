@@ -7,4 +7,6 @@ dependencies {
     api("com.squareup.retrofit2:converter-jackson")
     api("com.fasterxml.jackson.core:jackson-annotations")
     api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+
+    testImplementation("org.junit.jupiter:junit-jupiter")
 }

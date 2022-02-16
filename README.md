@@ -1,5 +1,9 @@
 完整地实现了[EMQX HTTP Api](https://docs.emqx.cn/broker/v4.3/advanced/http-api.html)，并做了较为完备的测试。
 
+适配`EMQX`版本
+
+- `4.2.x`
+
 # 使用
 
 ## 引入依赖
