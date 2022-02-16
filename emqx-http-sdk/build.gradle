@@ -1,5 +1,6 @@
-plugins{
-    id "emqx-http-sdk.java-library-conventions"
+plugins {
+    id "java-library"
+    id "maven-publish"
 }
 dependencies {
     api("com.squareup.retrofit2:retrofit")

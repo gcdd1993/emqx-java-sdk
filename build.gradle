@@ -1,0 +1,69 @@
+import java.text.SimpleDateFormat
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.11.RELEASE" apply false
+    id "org.springframework.boot" version "${spring_boot_version}" apply false
+}
+
+def javaVersion = System.getProperty("java.version")
+if (!javaVersion.startsWith("11")) {
+    throw new RuntimeException("Incompatible JRE version: " + javaVersion + ". Use JRE 11 instead.")
+}
+
+subprojects { project ->
+    group "io.github.gcdd1993"
+    version root_version
+
+    apply plugin: "java"
+    apply plugin: "idea"
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: "org.springframework.boot"
+    apply from: "${rootDir}/gradle/maven-publish.gradle"
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    jar {
+        enabled = true
+        manifest {
+            attributes(
+                    "Implementation-Title": project.name,
+                    "Implementation-Version": project.version,
+                    "Built-By": System.properties["user.name"],
+                    "Build-Timestamp": new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                    "Created-By": "Gradle ${gradle.gradleVersion}",
+                    "Build-Jdk": "${System.properties["java.version"]} (${System.properties["java.vendor"]} ${System.properties["java.vm.version"]})",
+                    "Build-OS": "${System.properties["os.name"]} ${System.properties["os.arch"]} ${System.properties["os.version"]}"
+            )
+        }
+    }
+
+    dependencies {
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+        compileOnly("org.projectlombok:lombok")
+        annotationProcessor("org.projectlombok:lombok")
+        testCompile("org.projectlombok:lombok")
+        testAnnotationProcessor("org.projectlombok:lombok")
+        testImplementation("ch.qos.logback:logback-classic")
+    }
+
+    dependencyManagement {
+        dependencies {
+            dependency("org.projectlombok:lombok:$lombok_version")
+            dependency("com.fasterxml.jackson.core:jackson-annotations:$jackson_version")
+            dependency("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version")
+
+            dependency("com.squareup.retrofit2:retrofit:$retrofit_version")
+            dependency("com.squareup.retrofit2:converter-jackson:$retrofit_version")
+            dependency("org.springframework.boot:spring-boot-configuration-processor:$spring_boot_version")
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}
