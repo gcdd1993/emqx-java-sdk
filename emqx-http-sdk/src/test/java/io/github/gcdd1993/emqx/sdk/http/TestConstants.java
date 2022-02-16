@@ -6,9 +6,9 @@ package io.github.gcdd1993.emqx.sdk.http;
  */
 public interface TestConstants {
     //    String HOST = "http://localhost:8081";
-    String HOST = "https://emqx.test-platform.allx.cloud/";
+    String HOST = "http://localhost:8081";
     String USERNAME = "admin";
     String PASSWORD = "public";
 
-    String NODE = "emqx@emqx-1.emqx-headless.emqx.svc.cluster.local";
+    String NODE = "35af77756e2b@172.18.0.2";
 }

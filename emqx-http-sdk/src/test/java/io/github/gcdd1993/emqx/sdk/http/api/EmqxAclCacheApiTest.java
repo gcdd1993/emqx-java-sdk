@@ -2,6 +2,7 @@ package io.github.gcdd1993.emqx.sdk.http.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.github.gcdd1993.emqx.sdk.http.TestConstants;
 import io.github.gcdd1993.emqx.sdk.http.model.response.EmqxResponseDto;
 import lombok.SneakyThrows;
 import okhttp3.OkHttpClient;
@@ -51,14 +52,14 @@ class EmqxAclCacheApiTest {
     void cleanAclCache() {
         Response<EmqxResponseDto<Void>> response = emqxAclCacheApi.cleanAclCache().execute();
         EmqxResponseDto<Void> body = response.body();
-        Assertions.assertTrue(body.getCode() == 0);
+        Assertions.assertEquals((int) body.getCode(), 0);
     }
 
     @Test
     @SneakyThrows
     void testCleanAclCache() {
-        Response<EmqxResponseDto<Void>> response = emqxAclCacheApi.cleanAclCache("c6e6e46531bf@172.18.0.2").execute();
+        Response<EmqxResponseDto<Void>> response = emqxAclCacheApi.cleanAclCache(TestConstants.NODE).execute();
         EmqxResponseDto<Void> body = response.body();
-        Assertions.assertTrue(body.getCode() == 0);
+        Assertions.assertEquals((int) body.getCode(), 0);
     }
 }
