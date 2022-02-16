@@ -26,9 +26,9 @@ log.info("clients: {}", clients);
 
 ## 另外
 
-设计了较为简单地方式来方便地使用他们，并对Api做了分组（按照模块区分）。
+设计了较为简单的方式来方便地使用他们，并对Api做了分组（按照模块区分）。
 
-如果你想获取Client的信息，只需要
+如果你想获取`Client`的信息，只需要
 
 ```java
 EmqxClientApi emqxClientApi = emqxApiFactory.create(EmqxClientApi.class);
@@ -126,3 +126,14 @@ emqx:
 
 - https://github.com/square/retrofit
 - https://github.com/FasterXML/jackson
+
+# 未竟事宜
+
+## 未知数据模型
+
+在官方文档中，有些数据模型未在文档中体现，而且模拟请求未获得数据，所以只能暂时使用`Object`来代替
+
+- `ClientDto#mountpoint`
+- `RuleDto#RuleActionDto#fallbacks`
+
+希望有知晓的可以告知一下
