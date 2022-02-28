@@ -61,12 +61,12 @@ public class RuleDto {
     @NoArgsConstructor
     public static class RuleMetricsDto {
         @JsonProperty("speed_max")
-        private Integer speedMax;
+        private Long speedMax;
         @JsonProperty("speed_last5m")
         private Double speedLast5m;
         private Double speed;
         private String node;
-        private Integer matched;
+        private Long matched;
     }
 
     @Data
@@ -90,8 +90,8 @@ public class RuleDto {
     @NoArgsConstructor
     public static class RuleActionMetricsDto {
         private String node;
-        private Integer success;
-        private Integer failed;
+        private Long success;
+        private Long failed;
     }
 
 }

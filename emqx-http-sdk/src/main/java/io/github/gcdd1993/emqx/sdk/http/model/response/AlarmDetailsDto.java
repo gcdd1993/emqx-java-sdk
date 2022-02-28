@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 public class AlarmDetailsDto {
 
     @JsonProperty("high_watermark")
-    private Integer highWatermark;
+    private Long highWatermark;
 }

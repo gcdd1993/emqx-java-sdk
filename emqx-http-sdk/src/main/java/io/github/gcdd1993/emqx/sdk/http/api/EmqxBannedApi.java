@@ -27,7 +27,7 @@ public interface EmqxBannedApi {
     /**
      * 将对象添加至黑名单
      *
-     * @param banned 黑名单
+     * @param request 黑名单
      * @return 黑名单
      */
     @POST("/api/v4/banned")

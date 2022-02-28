@@ -42,7 +42,7 @@ public class ClientDto {
      * 客户端使用的协议版本
      */
     @JsonProperty("proto_ver")
-    private Integer protoVer;
+    private Long protoVer;
 
     /**
      * 客户端的 IP 地址
@@ -53,7 +53,7 @@ public class ClientDto {
     /**
      * 客户端的端口
      */
-    private Integer port;
+    private Long port;
 
     /**
      * 指示客户端是否通过桥接方式连接
@@ -88,7 +88,7 @@ public class ClientDto {
     /**
      * 保持连接时间，单位：秒
      */
-    private Integer keepalive;
+    private Long keepalive;
 
     /**
      * 指示客户端是否使用了全新的会话
@@ -100,7 +100,7 @@ public class ClientDto {
      * 会话过期间隔，单位：秒
      */
     @JsonProperty("expiry_interval")
-    private Integer expiryInterval;
+    private Long expiryInterval;
 
     /**
      * 会话创建时间
@@ -113,119 +113,119 @@ public class ClientDto {
      * 此客户端已建立的订阅数量
      */
     @JsonProperty("subscriptions_cnt")
-    private Integer subscriptionsCnt;
+    private Long subscriptionsCnt;
 
     /**
      * 此客户端允许建立的最大订阅数量
      */
     @JsonProperty("max_subscriptions")
-    private Integer maxSubscriptions;
+    private Long maxSubscriptions;
 
     /**
      * 飞行队列当前长度
      */
-    private Integer inflight;
+    private Long inflight;
 
     /**
      * 飞行队列最大长度
      */
     @JsonProperty("max_inflight")
-    private Integer maxInflight;
+    private Long maxInflight;
 
     /**
      * 消息队列当前长度
      */
     @JsonProperty("mqueue_len")
-    private Integer mqueueLen;
+    private Long mqueueLen;
 
     /**
      * 消息队列最大长度
      */
     @JsonProperty("max_mqueue")
-    private Integer maxMqueue;
+    private Long maxMqueue;
 
     /**
      * 消息队列因超出长度而丢弃的消息数量
      */
     @JsonProperty("mqueue_dropped")
-    private Integer mqueueDropped;
+    private Long mqueueDropped;
 
     /**
      * 未确认的 PUBREC 报文数量
      */
     @JsonProperty("awaiting_rel")
-    private Integer awaitingRel;
+    private Long awaitingRel;
 
     /**
      * 允许存在未确认的 PUBREC 报文的最大数量
      */
     @JsonProperty("max_awaiting_rel")
-    private Integer maxAwaitingRel;
+    private Long maxAwaitingRel;
 
     /**
      * EMQ X Broker（下同）接收的字节数量
      */
     @JsonProperty("recv_oct")
-    private Integer recvOct;
+    private Long recvOct;
 
     /**
      * 接收的 TCP 报文数量
      */
     @JsonProperty("recv_cnt")
-    private Integer recvCnt;
+    private Long recvCnt;
 
     /**
      * 接收的 MQTT 报文数量
      */
     @JsonProperty("recv_pkt")
-    private Integer recvPkt;
+    private Long recvPkt;
 
     /**
      * 接收的 PUBLISH 报文数量
      */
     @JsonProperty("recv_msg")
-    private Integer recvMsg;
+    private Long recvMsg;
 
     /**
      * 发送的字节数量
      */
     @JsonProperty("send_oct")
-    private Integer sendOct;
+    private Long sendOct;
 
     /**
      * 发送的 TCP 报文数量
      */
     @JsonProperty("send_cnt")
-    private Integer sendCnt;
+    private Long sendCnt;
 
     /**
      * 发送的 MQTT 报文数量
      */
     @JsonProperty("send_pkt")
-    private Integer sendPkt;
+    private Long sendPkt;
 
     /**
      * 发送的 PUBLISH 报文数量
      */
     @JsonProperty("send_msg")
-    private Integer sendMsg;
+    private Long sendMsg;
 
     /**
      * 进程邮箱大小
      */
     @JsonProperty("mailbox_len")
-    private Integer mailboxLen;
+    private Long mailboxLen;
 
     /**
      * 进程堆栈大小，单位：字节
      */
     @JsonProperty("heap_size")
-    private Integer heapSize;
+    private Long heapSize;
 
     /**
      * Erlang reduction
      */
-    private Integer reductions;
+    private Long reductions;
 
     /**
      * fixme 未知参数，文档上没有

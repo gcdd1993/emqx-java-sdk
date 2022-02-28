@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-public class ShutdownCountDto extends LinkedHashMap<String, Integer> {
+public class ShutdownCountDto extends LinkedHashMap<String, Long> {
 
     /**
      * https://stackoverflow.com/questions/8305565/jackson-deserialize-object-or-array

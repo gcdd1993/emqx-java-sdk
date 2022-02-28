@@ -3,6 +3,12 @@ def releaseArtifactory = 'https://s01.oss.sonatype.org/content/repositories/rele
 def mavenName = 'gcdd1993'
 afterEvaluate { project ->
     if (project.plugins.hasPlugin("maven-publish")) {
+        if (project.plugins.hasPlugin("java")) {
+            java {
+                withJavadocJar()
+                withSourcesJar()
+            }
+        }
         publishing {
             repositories {
                 maven {

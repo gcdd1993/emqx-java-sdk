@@ -21,7 +21,7 @@ public class SubscriptionDto {
     /**
      * QoS 等级
      */
-    private Integer qos;
+    private Long qos;
 
     /**
      * 节点名称
