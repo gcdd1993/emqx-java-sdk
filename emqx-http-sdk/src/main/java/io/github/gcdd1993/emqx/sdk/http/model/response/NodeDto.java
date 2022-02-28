@@ -31,13 +31,13 @@ public class NodeDto {
      * 已占用的进程数量
      */
     @JsonProperty("process_used")
-    private Integer processUsed;
+    private Long processUsed;
 
     /**
      * 可用的进程数量
      */
     @JsonProperty("process_available")
-    private Integer processAvailable;
+    private Long processAvailable;
 
     /**
      * EMQ X 使用的 Erlang/OTP 版本
@@ -72,7 +72,7 @@ public class NodeDto {
      * 操作系统的最大文件描述符限制
      */
     @JsonProperty("max_fds")
-    private Integer maxFds;
+    private Long maxFds;
 
     /**
      * 15 分钟内的 CPU 平均负载
@@ -92,7 +92,7 @@ public class NodeDto {
     /**
      * 当前接入此节点的客户端数量
      */
-    private Integer connections;
+    private Long connections;
 
     private String sysdescr;
 

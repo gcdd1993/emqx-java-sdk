@@ -11,5 +11,5 @@ import java.util.LinkedHashMap;
  * @since 2022/1/10
  */
 @Data
-public class StatsDto extends LinkedHashMap<String, Integer> {
+public class StatsDto extends LinkedHashMap<String, Long> {
 }
