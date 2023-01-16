@@ -16,17 +16,17 @@ public class MetaDto {
     /**
      * 页码
      */
-    private Integer page;
+    private Long page;
 
     /**
      * 每页显示的数据条数
      */
-    private Integer limit;
+    private Long limit;
 
     /**
      * 表示总数，在 多条件/模糊查询时，固定为 -1
      */
-    private Integer count;
+    private Long count;
 
     /**
      * 4.1 新增字段

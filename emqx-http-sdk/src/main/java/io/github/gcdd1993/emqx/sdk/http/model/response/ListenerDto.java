@@ -20,7 +20,7 @@ public class ListenerDto {
     /**
      * Acceptor 进程数量
      */
-    private Integer acceptors;
+    private Long acceptors;
 
     /**
      * 监听端口
@@ -37,13 +37,13 @@ public class ListenerDto {
      * 当前连接数量
      */
     @JsonProperty("current_conns")
-    private Integer currentConns;
+    private Long currentConns;
 
     /**
      * 允许建立的最大连接数量
      */
     @JsonProperty("max_conns")
-    private Integer maxConns;
+    private Long maxConns;
 
     /**
      * 连接关闭原因及计数

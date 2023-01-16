@@ -104,6 +104,7 @@ public interface EmqxClientApi {
      * <p>
      * 由于可能存在多个客户端使用相同的用户名的情况，所以可能同时返回多个客户端信息。
      *
+     * @param node 节点名称
      * @param username Username
      * @return 客户端的信息
      */

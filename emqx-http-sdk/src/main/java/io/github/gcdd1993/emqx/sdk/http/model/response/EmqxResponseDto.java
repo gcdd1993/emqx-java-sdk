@@ -16,7 +16,7 @@ public class EmqxResponseDto<T> {
      *
      * <a href="https://docs.emqx.cn/broker/v4.3/advanced/http-api.html#%E5%93%8D%E5%BA%94%E7%A0%81"></a>
      */
-    private Integer code;
+    private Long code;
 
     /**
      * 仅在发生错误时返回，用于提供更详细的错误信息

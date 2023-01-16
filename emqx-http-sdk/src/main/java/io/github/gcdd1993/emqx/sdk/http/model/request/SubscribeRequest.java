@@ -26,7 +26,7 @@ public class SubscribeRequest {
     /**
      * QoS 等级
      */
-    private Integer qos;
+    private Long qos;
 
     /**
      * 客户端标识符

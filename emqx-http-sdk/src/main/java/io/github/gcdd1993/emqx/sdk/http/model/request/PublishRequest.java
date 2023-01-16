@@ -42,7 +42,7 @@ public class PublishRequest {
     /**
      * QoS 等级
      */
-    private Integer qos;
+    private Long qos;
 
     /**
      * 是否为保留消息
